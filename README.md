@@ -12,7 +12,7 @@ Todoリストのタスクにポモドーロ・テクニックを付け、統計�
 [ベータ版です](https://xd.adobe.com/view/48c27a6e-2b79-4820-b21d-c7e9cab5513a-1d91/)
 
 ### ER図
-![ER図](https://drive.google.com/file/d/1Fg-wB9FQ_xtKBTbIlVFpT6QYwKHo8YLw/view?usp=sharing)
+![ER図](https://drive.google.com/file/d/1FJzSvMY1Dw_NnbUrIFPOBWnvYMqWold_/view?usp=sharing)
 
 ### 登場人物
 ***
