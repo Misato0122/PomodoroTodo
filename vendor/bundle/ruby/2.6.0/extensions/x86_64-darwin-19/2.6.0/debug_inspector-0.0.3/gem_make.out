@@ -1,0 +1,15 @@
+current directory: /Users/yamashitamisato/workspace/runteq/ポモドーロアプリ/PomodoroTodo/vendor/bundle/ruby/2.6.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+/Users/yamashitamisato/.rbenv/versions/2.6.5/bin/ruby -I /Users/yamashitamisato/.rbenv/versions/2.6.5/lib/ruby/site_ruby/2.6.0 -r ./siteconf20201222-9797-1jn46as.rb extconf.rb
+creating Makefile
+
+current directory: /Users/yamashitamisato/workspace/runteq/ポモドーロアプリ/PomodoroTodo/vendor/bundle/ruby/2.6.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/yamashitamisato/workspace/runteq/ポモドーロアプリ/PomodoroTodo/vendor/bundle/ruby/2.6.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/yamashitamisato/workspace/runteq/ポモドーロアプリ/PomodoroTodo/vendor/bundle/ruby/2.6.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20201222-9797-16i9c0z
