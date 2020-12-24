@@ -18,6 +18,8 @@ gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
 gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'uglifier'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
