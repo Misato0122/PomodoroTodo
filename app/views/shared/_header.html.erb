@@ -1,3 +1,12 @@
 <div class="navbar navbar-dark bg-dark shadow-sm">
   <%= link_to 'PomodoroTodo', root_path, class: 'navbar-brand d-flex align-items -center' %>
+  <div class='float-light'>
+    <% if current_user %>
+      <%= link_to 'ログアウト', logout_path, method: :delete %>
+    <% else %>
+      <%= link_to '新規登録', new_user_path %>
+      |
+      <%= link_to 'ログイン', login_path %>
+    <% end %>
+  </div>
 </div>
