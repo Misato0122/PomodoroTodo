@@ -41,6 +41,7 @@ yarn-debug.log*
 .yarn-integrity
 
 /.env
+vender/
 vender/bundle
 /yarn.lock
 /package.json
