@@ -1,0 +1,7 @@
+ja:
+    defaults:
+    user_sessions:
+      new:
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'

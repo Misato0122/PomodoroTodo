@@ -1,0 +1,7 @@
+class Task < ApplicationRecord
+
+  validates :content, presence: true, length: { maximum: 50 }
+
+  belongs_to :user
+  enum state: { todo: 0, doing: 1, done: 2 }
+end

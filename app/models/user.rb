@@ -7,5 +7,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
+  has_many :tasks
+
   enum role: { general: 0, admin: 1 }
 end
