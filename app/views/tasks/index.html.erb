@@ -1,5 +1,9 @@
 <h1>Todoリスト</h1>
 
+<div>
+  <p>本日の実績 <%= current_user.pomodoros.where(created_at: Time.zone.now.all_day).count%>回</p>
+</div>
+
 <!-- タスク新規作成モーダルボタン -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">タスク新規作成</button>
 
@@ -33,12 +37,13 @@
   </div>
 </div>
 
-<table class='table'>
+<table class='table js-table-task'>
   <thead>
     <tr>
       <th></th>
       <th><%= Task.human_attribute_name(:content) %></th>
       <th><%= Task.human_attribute_name(:deadline) %></th>
+      <th>ポモドーロ数</th>
       <th></th>
       <th></th>
       <th></th>

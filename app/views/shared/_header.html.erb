@@ -7,8 +7,8 @@
         Menu
       </button>
       <div class="dropdown-menu">
-        <%= link_to 'Todoリスト', '#', class: 'dropdown-item'%>
-        <%= link_to 'ユーザーページ', '#', class: 'dropdown-item'%>
+        <%= link_to 'Todoリスト', tasks_path, class: 'dropdown-item'%>
+        <%= link_to 'ユーザーページ', user_path(current_user), class: 'dropdown-item'%>
         <div class="dropdown-divider"></div>
         <%= link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item' %>
       </div>

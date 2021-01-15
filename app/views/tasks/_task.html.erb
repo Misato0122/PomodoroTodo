@@ -1,19 +1,12 @@
-<tr>
+<tr id="task-<%= task.id%>">
   <th><%= check_box_tag :task %></th>
   <td><%= task.content %></td>
   <td><%= task.deadline %></td>
-  <td><span data-task-id=<%= task.id %> class="js-edit-task-button">編集</span></td>
-  <td>
-    <div id="js-task-<%= task.id %>">
-      <p id="js-task-label-<%= task.id %>"><%= task.content %></p>
-      <p id="js-task-post-error-<%= task.id %>" class="text-danger"></p>
-      <textarea style="display: none;" id="js-textarea-task-<%= task.id %>" class="form-control task-post-error"><%= task.content%></textarea>
-        <div id="js-task-button-<%= task.id %>" style="display: none;">
-          <button data-cancel-id=<%= task.id %> type="button" class="btn btn-light task-cancel-button">キャンセル</button>
-          <button data-update-id=<%= task.id %> type="submit" class="btn btn-success task-update-button">更新</button>
-        </div>
-    </div>
-  </td>
+  <td><%= task.pomodoros.count %>回</td>
+  <td><%= link_to 'スタート', timer_task_path(task), class: 'btn btn-primary'%></td>
   <td><%= link_to '削除', task_path(task), method: :delete, class: 'btn btn-danger', data: { confirm: '削除してよろしいですか？' } %></td>
+  <td></td>
 </tr>
+
+
 

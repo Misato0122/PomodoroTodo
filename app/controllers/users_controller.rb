@@ -6,7 +6,7 @@ skip_before_action :require_login, only: [:new, :create]
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def create

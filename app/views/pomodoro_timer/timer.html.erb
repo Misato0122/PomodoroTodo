@@ -1,0 +1,44 @@
+
+<div class="timer">
+  <span id="minute">00</span>：
+  <span id="second">02</span>
+  <br>
+  <%= link_to '中断', tasks_path, id: "stp-btn", class: "btn btn-primary" %>
+  <%= form_with model: @pomodoro, url: pomodoros_task_path(@task), id: "comp-btn", local: true do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :task_id, value: @task.id %>
+    <%= f.submit '完了', class: "btn btn-danger" %>
+  <% end %>
+</div>
+<script>
+  $(function(){
+
+  $('#comp-btn').hide();
+  var timer1;
+
+    $(window).on('load', function() {
+      timer1 = setInterval(function(){
+        countDown()
+      }, 1000);
+    });
+
+    function countDown() {
+      var min = parseInt($('#minute').text());
+      var sec = parseInt($('#second').text());
+      tmWrite(min * 60 + sec - 1);
+    };
+
+    function tmWrite(int) {
+      int = parseInt(int);
+      if(int <= -1) {
+        clearInterval(timer1);
+        $('#stp-btn').hide();
+        $('#comp-btn').show();
+        Push.create('Push通知');
+      } else {
+        $('#minute').text(Math.floor(int/60));
+        $('#second').text(int % 60);
+      };
+    };
+  });
+</script>
