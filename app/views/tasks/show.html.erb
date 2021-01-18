@@ -1,2 +1,5 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<h1>タスク詳細ページ</h1>
+<p><span><%= Task.human_attribute_name(:content)%></span><span><%= @task.content %></span></p>
+<p><span><%= Task.human_attribute_name(:deadline)%></span><span><%= @task.deadline %></span></p>
+
+<%= column_chart @data, width: "800px", height: "500px" %>

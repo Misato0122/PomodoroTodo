@@ -7,6 +7,7 @@ skip_before_action :require_login, only: [:new, :create]
 
   def show
     @user = current_user
+    @data = current_user.pomodoros
   end
 
   def create
