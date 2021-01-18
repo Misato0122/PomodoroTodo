@@ -1,10 +1,13 @@
-<div class="row mb-3">
-  <div class="col-lg-8 offset-lg-2">
-    <%= form_with model: task do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= f.text_area :content, class: 'form-control mb-3', id: 'js-new-comment-body', row: 4, placeholder: 'タスク名' %>
-      <%= f.date_field :deadline, class: 'form-control date-picker'%>
-      <%= f.submit 'タスク更新', class: 'btn btn-primary' %>
-    <% end %>
-  </div>
-</div>
+<h1>タスク編集</h1>
+
+      <%= form_with model: @task, local: true do |f|%>
+          <div class="form-group">
+            <%= f.label :content, Task.human_attribute_name(:content) %>
+            <%= f.text_field :content, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :deadline, Task.human_attribute_name(:deadline) %>
+            <%= f.date_field :deadline, class: 'form-control date-picker' %>
+          </div>
+          <%= f.submit 'タスク更新', class: 'btn btn-primary' %>
+      <% end %>

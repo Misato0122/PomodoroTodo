@@ -1,7 +1,7 @@
 
 <div class="timer">
-  <span id="minute">25</span>：
-  <span id="second">00</span>
+  <span id="minute">00</span>：
+  <span id="second">02</span>
   <br>
   <%= link_to '中断', tasks_path, id: "stp-btn", class: "btn btn-primary" %>
   <%= form_with model: @pomodoro, url: pomodoros_task_path(@task), id: "comp-btn", local: true do |f| %>
