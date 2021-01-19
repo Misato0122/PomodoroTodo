@@ -5,12 +5,12 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    array = []
+    @data = []
     d = Time.zone.today
+    pomodoros = @task.pomodoros.group("date(created_at)").count
     (0..6).each do |a|
-      array.push([d - a, @task.pomodoros.where(created_at: (d - a).all_day).count])
+      @data.push([d - a, pomodoros[d - a]])
     end
-    @data = array
   end
 
   def create

@@ -7,12 +7,12 @@ skip_before_action :require_login, only: [:new, :create]
 
   def show
     @user = current_user
-    array = []
+    @data = []
     d = Time.zone.today
+    pomodoros = current_user.pomodoros.group("date(created_at)").count
     (0..6).each do |a|
-      array.push([d - a, current_user.pomodoros.where(created_at: (d - a).all_day).count])
+      @data.push([d - a, pomodoros[d - a]])
     end
-    @data = array
   end
 
   def create
