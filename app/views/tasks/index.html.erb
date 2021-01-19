@@ -1,17 +1,22 @@
-<h1>Todoリスト</h1>
+<h1>やることリスト</h1>
+
+<div id="break-timer" style="display:none;">
+<span id="minute">00</span>:
+<span id="second">02</span>
+</div>
 
 <div>
   <p>本日の実績 <%= current_user.pomodoros.where(created_at: Time.zone.now.all_day).count%>回</p>
 </div>
 
 <!-- タスク新規作成モーダルボタン -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">タスク新規作成</button>
+<button type="button" class="btn lavender" data-toggle="modal" data-target="#exampleModalCenter">タスク新規作成</button>
 
 <!-- モーダル -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div class="modal-content" style="background-color:#eff8ff;">
+      <div class="modal-header lavender">
         <h5 class="modal-title" id="exampleModalCenterTitle">タスク新規作成</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -29,7 +34,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <%= f.submit 'タスク登録', class: 'btn btn-primary' %>
+          <%= f.submit 'タスク登録', class: 'btn green' %>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
         </div>
       <% end %>
@@ -37,13 +42,14 @@
   </div>
 </div>
 
-<table class='table js-table-task'>
+<table class='table js-table-task' style="background-color:white;">
   <thead>
     <tr>
       <th></th>
       <th><%= Task.human_attribute_name(:content) %></th>
       <th><%= Task.human_attribute_name(:deadline) %></th>
-      <th>ポモドーロ数</th>
+      <th>合計ポモドーロ数</th>
+      <th>本日のポモドーロ数</th>
       <th></th>
       <th></th>
       <th></th>
@@ -57,3 +63,41 @@
     <% end %>
   </tbody>
 </table>
+
+<script>
+  $(function(){
+    var timer1;
+    if(){
+      $('#break-timer').show();
+      $(window).on('load', function() {
+        timer1 = setInterval(function(){
+          countDown()
+        }, 1000);
+      });
+    };
+
+    function countDown() {
+      var min = parseInt($('#minute').text());
+      var sec = parseInt($('#second').text());
+      tmWrite(min * 60 + sec - 1);
+    };
+
+    function tmWrite(int) {
+      int = parseInt(int);
+      if(int <= -1) {
+        clearInterval(timer1);
+        $('#break-timer').hide();
+      } else {
+        $('#minute').text(addZero(Math.floor(int/60)));
+        $('#second').text(addZero(int % 60));
+      };
+    };
+
+    function addZero(val) {
+      if(val < 10) {
+        val = '0' + val;
+      }
+      return val;
+    }
+  });
+</script>

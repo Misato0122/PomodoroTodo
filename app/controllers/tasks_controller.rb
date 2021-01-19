@@ -4,6 +4,13 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find(params[:id])
+    @data = []
+    d = Time.zone.today
+    pomodoros = @task.pomodoros.group("date(created_at)").count
+    (0..6).each do |a|
+      @data.push([d - a, pomodoros[d - a]])
+    end
   end
 
   def create
@@ -11,12 +18,12 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path, success: 'タスク登録しました'
     else
-      render :index
-      flash.now[:danger] = 'タスク作成に失敗しました'
+      redirect_to tasks_path, danger: 'タスク作成に失敗しました'
     end
   end
 
   def edit
+    @task = Task.find(params[:id])
   end
 
   def update

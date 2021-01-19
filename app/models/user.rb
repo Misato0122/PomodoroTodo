@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   has_many :pomodoros, dependent: :destroy
-  has_many :tasks, dependent: :destroy
+  has_many :tasks, dependent: :nullify
 
   enum role: { general: 0, admin: 1 }
 end

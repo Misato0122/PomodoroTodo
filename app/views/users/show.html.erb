@@ -1,1 +1,17 @@
 <h1>ユーザー詳細</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <td><%= current_user.name%></td>
+    <td><%= current_user.email%></td>
+  </tbody>
+</table>
+
+<h2>一週間の実績</h2>
+<%= bar_chart @data, width: "800px" %>

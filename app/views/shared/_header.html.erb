@@ -1,5 +1,5 @@
-<div class="navbar navbar-dark bg-dark shadow-sm">
-  <%= link_to 'PomodoroTodo', root_path, class: 'navbar-brand d-flex align-items -center' %>
+<div class="navbar shadow-sm" style="background-color:#ffe5b9;">
+  <%= link_to 'PomodoroTodo', root_path, class: 'navbar-brand d-flex align-items-center title' %>
   <div class='float-light'>
     <% if current_user %>
     <div class="btn-group dropleft">
@@ -7,7 +7,7 @@
         Menu
       </button>
       <div class="dropdown-menu">
-        <%= link_to 'Todoリスト', tasks_path, class: 'dropdown-item'%>
+        <%= link_to 'やることリスト', tasks_path, class: 'dropdown-item'%>
         <%= link_to 'ユーザーページ', user_path(current_user), class: 'dropdown-item'%>
         <div class="dropdown-divider"></div>
         <%= link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item' %>
