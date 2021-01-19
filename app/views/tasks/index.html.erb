@@ -5,6 +5,7 @@
 <span id="second">02</span>
 </div>
 
+
 <div>
   <p>本日の実績 <%= current_user.pomodoros.where(created_at: Time.zone.now.all_day).count%>回</p>
 </div>
