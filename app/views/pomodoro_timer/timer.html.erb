@@ -1,13 +1,13 @@
 
 <div class="timer">
-  <span id="minute">25</span>：
-  <span id="second">00</span>
+    <span id="minute">00</span>：
+    <span id="second">02</span>
   <br>
-  <%= link_to '中断', tasks_path, id: "stp-btn", class: "btn btn-primary" %>
+  <%= link_to '中断', tasks_path, id: "stp-btn", class: "btn pink" %>
   <%= form_with model: @pomodoro, url: pomodoros_task_path(@task), id: "comp-btn", local: true do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :task_id, value: @task.id %>
-    <%= f.submit '完了', class: "btn btn-danger" %>
+    <%= f.submit '完了', class: "btn", style: "background-color:#11698e; color:#eff8ff;" %>
   <% end %>
 </div>
 <script>

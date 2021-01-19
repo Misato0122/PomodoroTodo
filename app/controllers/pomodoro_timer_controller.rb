@@ -7,7 +7,7 @@ class PomodoroTimerController < ApplicationController
   def create
     @pomodoro = Pomodoro.new(pomodoro_params)
     @pomodoro.save
-    redirect_to tasks_path
+    redirect_to tasks_path, success: 'ポモドーロ回数を更新しました！'
   end
 
 private

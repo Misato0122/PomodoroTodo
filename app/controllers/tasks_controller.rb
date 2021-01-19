@@ -18,8 +18,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path, success: 'タスク登録しました'
     else
-      render :index
-      flash.now[:danger] = 'タスク作成に失敗しました'
+      redirect_to tasks_path, danger: 'タスク作成に失敗しました'
     end
   end
 
