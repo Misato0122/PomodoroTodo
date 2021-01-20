@@ -1,14 +1,14 @@
-<h1>やることリスト</h1>
 
 <div id="break-timer" style="display:none;">
-<span id="minute">00</span>:
-<span id="second">02</span>
+<span>休憩時間      </span>
+<span id="minute">05</span>:
+<span id="second">00</span>
 </div>
-
 
 <div>
-  <p>本日の実績 <%= current_user.pomodoros.where(created_at: Time.zone.now.all_day).count%>回</p>
+  <p class="pink" style="text-align: center; font-size: 60px;">本日の実績 <%= current_user.pomodoros.where(created_at: Time.zone.now.all_day).count%>回</p>
 </div>
+<h1>やることリスト</h1>
 
 <!-- タスク新規作成モーダルボタン -->
 <button type="button" class="btn lavender" data-toggle="modal" data-target="#exampleModalCenter">タスク新規作成</button>
@@ -67,8 +67,9 @@
 
 <script>
   $(function(){
+    
     var timer1;
-    if(){
+    if(sessionStorage.getItem('count')){
       $('#break-timer').show();
       $(window).on('load', function() {
         timer1 = setInterval(function(){
@@ -87,6 +88,7 @@
       int = parseInt(int);
       if(int <= -1) {
         clearInterval(timer1);
+        sessionStorage.clear();
         $('#break-timer').hide();
       } else {
         $('#minute').text(addZero(Math.floor(int/60)));

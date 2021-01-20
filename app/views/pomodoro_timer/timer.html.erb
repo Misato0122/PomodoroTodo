@@ -34,7 +34,7 @@
         clearInterval(timer1);
         $('#stp-btn').hide();
         $('#comp-btn').show();
-        Push.create('Push通知');
+        sessionStorage.count = 'present'
       } else {
         $('#minute').text(addZero(Math.floor(int/60)));
         $('#second').text(addZero(int % 60));
