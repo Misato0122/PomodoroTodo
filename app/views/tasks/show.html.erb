@@ -2,8 +2,19 @@
 <div class="text-right">
   <%= link_to '編集', edit_task_path(@task), class: 'btn btn-info' %>
 </div>
-<p><span><%= Task.human_attribute_name(:content)%></span><span><%= @task.content %></span><span><%= Task.human_attribute_name(:deadline)%></span>  <span><%= @task.deadline %></span></p>
 
+<table class="table" style="background-color: white;">
+  <tr>
+    <th scope="row"><%= Task.human_attribute_name(:content) %></th>
+    <td><%= @task.content %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= Task.human_attribute_name(:deadline) %></th>
+    <td><%= @task.deadline %></td>
+  </tr>
+  <tr>
+    <th scope="row">一週間の実績</th>
+    <td><%= bar_chart @data, width: "800px" %></td>
+  </tr>
+</table>
 
-<h2>一週間の実績</h2>
-<%= bar_chart @data, width: "800px" %>

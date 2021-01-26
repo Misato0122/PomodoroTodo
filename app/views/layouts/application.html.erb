@@ -5,11 +5,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
   <body>
     <%= render 'shared/header' %>
     <%= render 'shared/flash_message'%>
@@ -18,9 +17,4 @@
     </div>
     <%= render 'shared/footer'%>
   </body>
-  <script>
-    $(function(){
-      Push.Permission.request();
-    })
-  </script>
 </html>

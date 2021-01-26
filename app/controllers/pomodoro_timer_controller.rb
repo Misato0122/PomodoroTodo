@@ -2,6 +2,7 @@ class PomodoroTimerController < ApplicationController
   def timer
     @pomodoro = Pomodoro.new
     @task = Task.find(params[:id])
+    session[:task_id] = @task.id
   end
 
   def create

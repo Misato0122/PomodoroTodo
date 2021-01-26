@@ -1,7 +1,7 @@
 
 <div class="timer">
-    <span id="minute">00</span>：
-    <span id="second">02</span>
+    <span id="minute">25</span>：
+    <span id="second">00</span>
   <br>
   <%= link_to '中断', tasks_path, id: "stp-btn", class: "btn pink" %>
   <%= form_with model: @pomodoro, url: pomodoros_task_path(@task), id: "comp-btn", local: true do |f| %>
@@ -9,22 +9,31 @@
     <%= f.hidden_field :task_id, value: @task.id %>
     <%= f.submit '完了', class: "btn", style: "background-color:#11698e; color:#eff8ff;" %>
   <% end %>
+  <p style="color: red; font-size: 20px;">※ ページ遷移するとタイマーが止まるのでご注意ください！</p>
 </div>
 <script>
   $(function(){
 
   $('#comp-btn').hide();
+  $('.navbar').hide();
+  $('.footer').hide();
   var timer1;
 
     $(window).on('load', function() {
       timer1 = setInterval(function(){
+        localStorage.pomo = 'pre'
         countDown()
       }, 1000);
     });
 
     function countDown() {
-      var min = parseInt($('#minute').text());
-      var sec = parseInt($('#second').text());
+      if(localStorage.getItem('min') && localStorage.getItem('sec')){
+        var min = parseInt(localStorage.getItem('min'));
+        var sec = parseInt(localStorage.getItem('sec'));
+      } else {
+        var min = parseInt($('#minute').text());
+        var sec = parseInt($('#second').text());
+      };
       tmWrite(min * 60 + sec - 1);
     };
 
@@ -34,10 +43,15 @@
         clearInterval(timer1);
         $('#stp-btn').hide();
         $('#comp-btn').show();
-        sessionStorage.count = 'present'
+        localStorage.count = "<%= timer_task_path(@task)%>"
+        localStorage.removeItem('min');
+        localStorage.removeItem('sec');
+        $.removeCookie('task');
       } else {
         $('#minute').text(addZero(Math.floor(int/60)));
         $('#second').text(addZero(int % 60));
+        localStorage.min = $('#minute').text();
+        localStorage.sec = $('#second').text();
       };
     };
 
